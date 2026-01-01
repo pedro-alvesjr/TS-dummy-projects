@@ -12,7 +12,7 @@ type InvestmentResult = {
     totalInterestEarned: number,
 };
 
-type CalculationResults = InvestmentResult | string
+type CalculationResults = InvestmentResult[] | string
 
 function calculateInvestments (data: InvestmentData): CalculationResults {
     const { initialAmount, annualContribution, expectedReturn, duration } = data
@@ -48,8 +48,21 @@ function calculateInvestments (data: InvestmentData): CalculationResults {
             totalContributions
         })
     }
+
+    return annualResults;
 };
 
-function printResults (results) {
+function printResults (results: CalculationResults) {
+    if (typeof results === 'string') {
+        console.log(results);
+        return;
+    }
 
+    for (const yearEndResults of results) {
+        console.log(yearEndResults.year);
+        console.log(`Total amount: ${yearEndResults.totalAmount.toFixed(0)}`);
+        console.log(`Total interest earned: ${yearEndResults.totalInterestEarned.toFixed(0)}`);
+        console.log(`Total contribuitions: ${yearEndResults.totalContributions.toFixed(0)}`);
+        console.log('================================');
+    }
 };
