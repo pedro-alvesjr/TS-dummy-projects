@@ -66,3 +66,14 @@ function printResults (results: CalculationResults) {
         console.log('================================');
     }
 };
+
+const investmentData: InvestmentData = {
+    initialAmount: 5000,
+    annualContribution: 500,
+    expectedReturn: 0.08,
+    duration: 5,
+};
+
+const results = calculateInvestments(investmentData);
+
+printResults(results);
