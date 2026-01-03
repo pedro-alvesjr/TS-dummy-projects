@@ -27,3 +27,15 @@ class Employee extends Profile {
         super(firstName, lastName)
     }
 }
+
+abstract class UIElement {
+    identifier;
+
+    constructor(identifier: string) {
+        this.identifier = identifier
+    }
+
+    clone(targetLocation: string) {
+        // logic to duplicate here...
+    }
+}
