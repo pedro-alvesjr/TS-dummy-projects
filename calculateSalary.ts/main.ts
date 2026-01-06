@@ -37,6 +37,12 @@ function calculateIncrease (salaryInput: salaryInput): printSalaryOutput[] | str
         actualSalary = baseSalary / yearInflation;
         year = i + 1;
 
-        finalResult.push([baseSalary, actualSalary, year])
+        finalResult.push({
+            realSalary: baseSalary,
+            salaryAfterInflation: yearInflation,
+            year: year
+        })
     }
+
+    return finalResult
 }
